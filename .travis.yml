@@ -1,0 +1,23 @@
+language: python
+services:
+  - docker
+
+python:
+  - "2.7"
+
+install:
+  - make deps
+
+script:
+  - make test
+  - make test_cov
+  - make test_xunit
+  - make test_radon
+  - make lint
+  - make docker_build
+  - make docker_push
+
+deploy:
+  provider: heroku
+  app: arcane-lake-16874
+  api_key: ${HEROKU_API_KEY}

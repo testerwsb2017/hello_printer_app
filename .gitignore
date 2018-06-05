@@ -1,0 +1,5 @@
+**/*.pyc
+.cache
+.coverage
+test_results.xml
+**/.pytest_cache/**
